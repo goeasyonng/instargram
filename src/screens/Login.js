@@ -1,32 +1,26 @@
+import { darkModeVar } from "apollo";
 import styled from "styled-components";
 
+const Title = styled.h1`
+  color: ${(props) => props.theme.fontColor};
+`;
+
+const Container = styled.div``;
+
 function Login() {
-  const Title = styled.h1`
-    font-size: 1.5em;
-    text-align: center;
-    color: palevioletred;
-  `;
-
-  const Wrapper = styled.section`
-    display: flex;
-    flex-direction: column;
-    padding: 4em;
-    background: papaywhip;
-  `;
-
   return (
-    <div>
-      <Wrapper>
-        <Title>인스타그램</Title>
-        <div>
-          <form>
-            <input type="email" />
-            <input type="password " />
-            <input type="submit" />
-          </form>
-        </div>
-      </Wrapper>
-    </div>
+    <Container>
+      <Title>인스타그램</Title>
+      <div>
+        <form>
+          <input type="email" />
+          <input type="password " />
+          <input type="submit" />
+        </form>
+      </div>
+      <button onClick={() => darkModeVar(true)}>Dark Mode</button>
+      <button onClick={() => darkModeVar(false)}>Light Mode</button>
+    </Container>
   );
 }
 
