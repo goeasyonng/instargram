@@ -6,6 +6,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import { isLoggedInVar } from "../apollo";
 
 const Container = styled.div`
   display: flex;
@@ -68,7 +69,7 @@ const Input = styled.input`
   }
 `;
 
-const Button = styled.div`
+const Button = styled.input`
   width: 100%;
   border: none;
   border-radius: 3px;
@@ -111,6 +112,12 @@ const FacebookLogin = styled.div`
   }
 `;
 
+const onSubmit = (event) => {
+  event.preventDefault();
+  console.log("login click");
+  isLoggedInVar(true);
+};
+
 function Login() {
   return (
     <Container>
@@ -120,12 +127,10 @@ function Login() {
             <FontAwesomeIcon icon={faInstagram} size="3x" />
           </div>
 
-          <form>
+          <form onSubmit={onSubmit}>
             <Input type="email" placeholder="이메일" />
             <Input type="password " placeholder="비밀번호" />
-            <Button type="submit" value="Log In">
-              로그인
-            </Button>
+            <Button type="submit" value="로그인" />
           </form>
 
           <Separator>
