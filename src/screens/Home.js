@@ -1,6 +1,9 @@
 import styled from "styled-components";
-
 import Avatar from "components/Avartar";
+import { FaHeart, FaRegComment } from "react-icons/fa";
+import { AiOutlineHeart, AiOutlineMessage } from "react-icons/ai";
+import { IoMdPaperPlane } from "react-icons/io";
+import { BiBookmark } from "react-icons/bi";
 
 const FeedContainer = styled.div`
   display: flex;
@@ -29,8 +32,37 @@ const FeedPhoto = styled.img`
   max-width: 100%;
 `;
 
-const FeedActions = styled.div`
+const FeedActionContainer = styled.div`
   display: flex;
+  flex-direction: column;
+`;
+const FeedItem = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+const FeedAction = styled.div`
+width: 80px;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+margin 30px;
+`;
+const FeedMark = styled.div`
+  margin: 30px;
+`;
+const LikeContainer = styled.div`
+  margin: 10px;
+  margin-left: 30px;
+  display: flex;
+  font-size: 15px;
+`;
+const TextContainer = styled.div`
+  margin: 10px;
+  margin-left: 30px;
+  margin-bottom: 50px;
+  display: flex;
+  font-size: 15px;
 `;
 
 function Home() {
@@ -40,11 +72,25 @@ function Home() {
         <FeedHeader>
           <Avatar
             lg
-            url="https://mblogthumb-phinf.pstatic.net/MjAyMDA0MTBfMjQ4/MDAxNTg2NDgyNTMyMTQ1.dtZ7rR07L9U8giv9ea4juxflcnz18ZoF17_CnW6NHVsg.uPXYgoyZyQCrdSRsGNJYyMSQbhnK0Nh1BN4xUfOq_E4g.PNG.zencstory/0.png?type=w800"
+            url="https://cdn.discordapp.com/attachments/1057626057227903036/1076009799117963326/D43C9E92-4290-42DF-8F31-0DB8C0F396D8.jpg"
           />
-          <Nickname>Nickname</Nickname>
+          <Nickname>Meoa</Nickname>
         </FeedHeader>
-        <FeedPhoto src="https://mblogthumb-phinf.pstatic.net/MjAyMDA0MTBfMjQ4/MDAxNTg2NDgyNTMyMTQ1.dtZ7rR07L9U8giv9ea4juxflcnz18ZoF17_CnW6NHVsg.uPXYgoyZyQCrdSRsGNJYyMSQbhnK0Nh1BN4xUfOq_E4g.PNG.zencstory/0.png?type=w800" />
+        <FeedPhoto src="https://cdn.discordapp.com/attachments/1057626057227903036/1076009799117963326/D43C9E92-4290-42DF-8F31-0DB8C0F396D8.jpg" />
+        <FeedActionContainer>
+          <FeedItem>
+            <FeedAction>
+              {true ? <FaHeart /> : <AiOutlineHeart />}
+              <FaRegComment />
+              <IoMdPaperPlane />
+            </FeedAction>
+            <FeedMark>
+              <BiBookmark />
+            </FeedMark>
+          </FeedItem>
+          <LikeContainer>snsn외에 여러명이 좋아요를 눌렀습니다</LikeContainer>
+          <TextContainer>검은 고양이 네로네로</TextContainer>
+        </FeedActionContainer>
       </FeedContainer>
     </div>
   );
